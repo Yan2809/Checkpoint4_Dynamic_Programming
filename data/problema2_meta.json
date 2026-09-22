@@ -1,0 +1,7 @@
+{
+  "seed": 1,
+  "registros": 7200,
+  "n_horas": 720,
+  "unidades_por_regiao": 2,
+  "inicio": "2026-01-01 00:00"
+}
