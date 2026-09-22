@@ -1,0 +1,16 @@
+algoritmo,n,tempo_s,operacoes,memoria_pico_kib,soma
+Força bruta O(n³),100,0.006967,171700,0.4,113187
+Força bruta O(n²),100,0.000570,5050,0.4,113187
+Dividir e Conquistar,100,0.000176,772,0.5,113187
+Força bruta O(n³),250,0.101991,2635500,0.4,128492
+Força bruta O(n²),250,0.003967,31375,0.4,128492
+Dividir e Conquistar,250,0.000467,2244,0.5,128492
+Força bruta O(n³),500,0.866184,20958500,0.6,209027
+Força bruta O(n²),500,0.018180,125250,0.5,209027
+Dividir e Conquistar,500,0.001036,4988,1.4,209027
+Força bruta O(n²),1000,0.066294,500500,0.5,206044
+Dividir e Conquistar,1000,0.002091,10976,1.5,206044
+Força bruta O(n²),2000,0.272038,2001000,0.5,735364
+Dividir e Conquistar,2000,0.003933,23952,1.7,735364
+Força bruta O(n²),5000,1.699086,12502500,0.5,1893397
+Dividir e Conquistar,5000,0.012049,66808,2.1,1893397
