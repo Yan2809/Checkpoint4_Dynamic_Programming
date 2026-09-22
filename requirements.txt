@@ -1,0 +1,7 @@
+numpy>=1.24
+matplotlib>=3.7
+pytest>=7.0
+# apenas para executar os notebooks:
+nbformat>=5.9
+nbclient>=0.9
+ipykernel>=6.0
