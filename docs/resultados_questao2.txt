@@ -1,0 +1,42 @@
+SEED = 1 | registros = 7200 | horas = 720 | regiões = ['Centro-Oeste', 'Nordeste', 'Norte', 'Sudeste', 'Sul']
+Consumo total por região (MWh): Centro-Oeste=104,723, Nordeste=109,680, Norte=108,703, Sudeste=114,514, Sul=117,688
+Hora do dia de maior consumo médio: 19h (90.7 MWh/unidade)
+Top-3 picos do sistema (heap): 20/01 18h=998 MWh; 20/01 20h=996 MWh; 20/01 19h=981 MWh
+Horas com utilização ≥ 90% por região (set): Centro-Oeste=28, Nordeste=12, Norte=15, Sudeste=171, Sul=56
+Horas críticas simultâneas Sudeste ∩ Sul: 35
+Seleção 10/01–12/01 (bisect): horas 216..287; criticidade somada (prefixos, O(1)) = -20,857
+Horas com criticidade > 0: 203 de 720
+
+== Intervalo crítico (maior criticidade acumulada contínua) ==
+Força bruta O(n³)     : [471, 482] (20/01 15h → 21/01 02h) Σ=4,986.46 | operações=62,467,440 | 2518.3 ms
+Força bruta O(n²)     : [471, 482] (20/01 15h → 21/01 02h) Σ=4,986.46 | operações=259,560 | 34.9 ms
+Dividir e Conquistar  : [471, 482] (20/01 15h → 21/01 02h) Σ=4,986.46 | operações=7,616 | 1.7 ms
+Os três algoritmos retornam o MESMO intervalo (ver testes).
+D&C: profundidade = 11 níveis; nós internos registrados = 719 (= n − 1 = 719)
+
+== Escalabilidade ==
+algoritmo                   n   tempo (ms)      operações  mem. pico (KiB)
+Força bruta O(n³)         100         6.97        171,700              0.4
+Força bruta O(n²)         100         0.57          5,050              0.4
+Dividir e Conquistar      100         0.18            772              0.5
+Força bruta O(n³)         250       101.99      2,635,500              0.4
+Força bruta O(n²)         250         3.97         31,375              0.4
+Dividir e Conquistar      250         0.47          2,244              0.5
+Força bruta O(n³)         500       866.18     20,958,500              0.6
+Força bruta O(n²)         500        18.18        125,250              0.5
+Dividir e Conquistar      500         1.04          4,988              1.4
+Força bruta O(n²)        1000        66.29        500,500              0.5
+Dividir e Conquistar     1000         2.09         10,976              1.5
+Força bruta O(n²)        2000       272.04      2,001,000              0.5
+Dividir e Conquistar     2000         3.93         23,952              1.7
+Força bruta O(n²)        5000      1699.09     12,502,500              0.5
+Dividir e Conquistar     5000        12.05         66,808              2.1
+Expoente estimado (regressão log-log) — Força bruta O(n³): 2.99
+Expoente estimado (regressão log-log) — Força bruta O(n²): 2.04
+Expoente estimado (regressão log-log) — Dividir e Conquistar: 1.07
+
+== Viabilidade: 1,000,000 registros ==
+D&C medido: 2.78 s (20,951,424 operações, profundidade 21)
+Força bruta O(n²): 500,000,500,000 somas; extrapolado de n=5000 (1.67 s) => 66,690 s ≈ 18.5 h
+
+Figuras salvas em figures/questao2

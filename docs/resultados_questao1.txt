@@ -1,0 +1,21 @@
+SEED = 1 | λ = 0.5
+Pontos: 20 | vértices (com CD): 21 | vias: 46 (40 disponíveis, 6 bloqueadas) | completo? False
+Carga total demandada: 1245 kg | capacidade do veículo: 498 kg
+
+== Solução principal ==
+Guloso: benefício=1020, carga=490 kg, rota=310.1 km, atendidos=7 [P17 -> P06 -> P12 -> P02 -> P18 -> P07 -> P14]
+Programação Dinâmica: benefício=1031, carga=497 kg, rota=312.9 km, atendidos=7 [P07 -> P11 -> P14 -> P17 -> P06 -> P12 -> P02]
+Diferença (DP − guloso) = 11 de benefício
+
+== Varredura de capacidade (0..1245 kg, passo 12) ==
+Guloso ótimo em 51/106 capacidades; maior perda absoluta = 45
+
+== 200 instâncias sorteadas (seeds 1..200, mesmo gerador) ==
+Guloso ótimo em 46/200 | perda média = 2.12% | pior caso = 10.58% (seed 148)
+
+== Contraexemplo próprio ==
+Guloso: benefício=60, carga=6 kg, rota=2.0 km, atendidos=1 [P01]
+Programação Dinâmica: benefício=90, carga=10 kg, rota=3.0 km, atendidos=2 [P02 -> P03]
+Com capacidade 10 kg, o guloso escolhe primeiro A (score 9.23 > 8.18 de B e C) e sobram 4 kg, insuficientes para B ou C (5 kg cada): benefício 60. A DP percebe que B + C ocupam exatamente 10 kg e valem 90. O guloso otimiza a razão benefício/kg 'agora', mas a indivisibilidade dos atendimentos faz o item de maior razão fragmentar a capacidade e deixar um resto inaproveitável; a DP compara todas as combinações via DP[i][c].
+
+Figuras salvas em figures/questao1
